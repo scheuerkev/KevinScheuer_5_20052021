@@ -1,0 +1,17 @@
+:root {
+  font-size: 10px;
+
+  @media (min-width: 768px) {
+    font-size: 11px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 12px;
+  }
+
+}
+
+/*COLORS SCHEME*/
+
+$primary-color : hsl(317,41,93);
+$primary-color-mid: #c97eb2;
+$primary-color-darken : hsl(314, 41, 12);

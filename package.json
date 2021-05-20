@@ -1,0 +1,11 @@
+{
+  "name": "projet_5_site",
+  "version": "1.0.0",
+  "description": "Orinoco : Meubles en chêne",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./public/css/main.css"
+  },
+  "author": "Kévin Scheuer",
+  "license": "ISC"
+}

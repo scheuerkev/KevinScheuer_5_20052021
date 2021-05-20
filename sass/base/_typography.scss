@@ -1,0 +1,65 @@
+/*GLOBAL SETTINGS*/
+@font-face {
+  font-family: 'Belligerent-Madness';
+  src:url('../../public/fonts/Belligerent-Madness.ttf.woff') format('woff'),
+  url('../../public/fonts/Belligerent-Madness.ttf.svg#Belligerent-Madness') format('svg'),
+  url('../../public/fonts/Belligerent-Madness.ttf.eot'),
+  url('../../public/fonts/Belligerent-Madness.ttf.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Belligerent-Madness','Permanent Marker', cursive;
+  color: $primary-color-darken;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.9rem;
+  color: $primary-color-darken;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+p, button {
+  font-size: 1.2rem;
+  font-family: 'Lato', sans-serif;
+  color: $primary-color-darken;
+}
+
+input {
+  font-family: 'Lato', sans-serif;
+}
+
+/*SPEC*/
+
+.top-bar a {
+  font-size: 2rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  color: $primary-color-mid;
+}
+
+footer a {
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    color: $primary-color-darken;
+}

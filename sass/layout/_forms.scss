@@ -1,0 +1,27 @@
+.search {
+  display: flex;
+  align-items: center;
+
+  &__input {
+    background-color: white;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 1px 1px 6px 0 $primary-color;
+
+    &:focus {
+      box-shadow:0 0 5px 0 $primary-color-mid;
+      transition: all 300ms ease-in;
+      background-color: $primary-color;
+      color: black;
+    }
+  }
+
+  &__lens {
+    color: $primary-color-mid;
+    font-size: 2rem;
+    margin-left: 5px;
+  }
+
+}
