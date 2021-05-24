@@ -39,7 +39,7 @@ h6 {
   font-size: 1.2rem;
 }
 
-p, button {
+p, button, .hero {
   font-size: 1.2rem;
   font-family: 'Lato', sans-serif;
   color: $primary-color-darken;
@@ -56,6 +56,18 @@ input {
   font-family: 'Lato', sans-serif;
   font-weight: bold;
   color: $primary-color-mid;
+  transition: color 180ms ease-in;
+
+  @media (min-width: 768px) {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: $primary-color-darken;
+
+    &:hover {
+      color: $primary-color-mid;
+    }
+  }
+  
 }
 
 footer a {

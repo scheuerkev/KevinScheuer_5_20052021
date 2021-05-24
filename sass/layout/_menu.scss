@@ -85,6 +85,9 @@
 }
 */
 
+@media (max-width: 768px) {
+  
+
 .main-nav {
   display: block;
   position: absolute;
@@ -184,4 +187,43 @@
 }
 
 }
+}
 
+@media (min-width: 768px) {
+  .main-nav {
+    order: 2;
+  
+    &--actionner {
+      display: none;
+    }
+
+    .search {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 400px;
+
+      @media (min-width: 1024px) {
+        width: 500px;
+      }
+
+      @media (min-width: 1440px) {
+        width: 650px;
+      }
+    }
+
+  }
+
+  .top-bar img {
+    order: 1;
+  }
+
+  .top-bar .search {
+    order: 3;
+  }
+  
+}
