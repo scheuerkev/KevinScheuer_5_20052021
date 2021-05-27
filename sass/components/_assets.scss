@@ -1,8 +1,25 @@
 hr {
-  margin: 0 auto;
-  margin-top: 10px;
+  margin: 10px auto;
   width: 80%;
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(245,231,241,0), rgba(0,0,0,0.3), rgba(245,231,241,0));
+}
+
+.back-home {
+  width: 75vw;
+  height: 10vh;
+  border-radius: 60px;
+  border: 1px solid #2b1225;
+  background: #f4e6f0;
+  color: #2b1225;
+  text-transform: uppercase;
+  margin: auto;
+  display: block;
+  font-size: 1.6rem;
+  margin-top: 70px;
+}
+
+table {
+  margin: auto;
 }

@@ -1,6 +1,7 @@
 main {
   box-shadow: inset 0 4px 4px -5px #353535;
   padding: 10px;
+  min-height: 75vh;
 }
 
 .headings {
@@ -102,4 +103,8 @@ main {
   text-transform: uppercase;
   border-radius: 0 0 10px 0;
   letter-spacing: 1px;
+}
+
+.alert {
+  text-align: center;
 }
