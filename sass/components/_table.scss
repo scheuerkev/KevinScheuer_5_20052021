@@ -1,0 +1,29 @@
+table {
+  width: 95vw;
+  border-collapse: collapse;
+  margin-top: 40px;
+}
+
+thead {
+  background-color: $primary-color;
+@media (min-width: 375px) {
+  padding: 10px;
+}
+}
+
+td.quantity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button.quantity__control {
+  border: none;
+  background: transparent;
+}
+
+th, td {
+  @media (min-width: 375px) {
+    padding: 10px;
+  }
+}

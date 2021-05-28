@@ -14,18 +14,18 @@
           referrerpolicy="no-referrer"/>
 </head>
 <body>
-<div class="blackdrop"></div>
+<div id="blackdrop"></div>
 <header class="top-bar">
     <button class="main-nav--actionner" id="menu--actionner" aria-label="Ouvrir le menu principal">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="burgerSlice"></span>
+        <span class="burgerSlice"></span>
+        <span class="burgerSlice"></span>
     </button>
     <nav class="main-nav">
         <ul class="main-nav__menu">
-            <li><a href="index.html" title="Se rendre à l'accueil d'Orinoco">Accueil</a></li>
-            <li><a href="html/basket.html" title="Voir mon panier">Panier</a></li>
-            <li><a href="html/order.html" title="Suivre ma commande">Suivi de commande</a></li>
+            <li><a href="../../index.html" title="Se rendre à l'accueil d'Orinoco">Accueil</a></li>
+            <li><a href="../html/basket.html" title="Voir mon panier">Panier</a></li>
+            <li><a href="../html/order.html" title="Suivre ma commande">Suivi de commande</a></li>
         </ul>
         <form method="post" class="search">
             <input type="text" class="search__input" placeholder="Cherchez sur le site..."
@@ -54,22 +54,22 @@
                 <th>Vernis</th>
                 <th>Prix</th>
                 <th>Quantité</th>
-                <th>Sous-total</th>
+                <th>Total</th>
               </tr> 
           </thead>
           <tbody>    
               <tr>
-                  <td>Sample#1</td>
-                  <td>Chocolate</td>
-                  <td>3999</td>
-                  <td>1</td>
-                  <td>3999</td>
+                  <td class="product__name">Sample#1</td>
+                  <td class="varnish">Chocolate</td>
+                  <td class="price">3999</td>
+                  <td class="quantity"><button class="quantity__control quantity__minus"><i class="fas fa-minus"></i></button><span class="quantityCell">1</span><button class="quantity__control quantity__plus"><i class="fas fa-plus"></i></button></td>
+                  <td class="total">3999</td>
               </tr>
               <tr>
                 <td>Sample#2</td>
                 <td>Transparent</td>
                 <td>4999</td>
-                <td>3</td>
+                  <td class="quantity"><button class="quantity__control quantity__minus"><i class="fas fa-minus"></i></button>3<button class="quantity__control quantity__plus"><i class="fas fa-plus"></i></button></td>
                 <td>14997</td>
               </tr>
           </tbody>
@@ -83,6 +83,36 @@
               </tr>
           </tfoot>  
        </table>
+    <div class="order__controllers">
+        <button class="order__controllers--reset">Remettre à zéro</button>
+        <button class="order__controllers--send" id="sendOrderBtn">Envoyer commande</button>
+    </div>
+    <section class="order__modal" id="order__modal">
+        <button class="close" id="closeOrderBtn" aria-label="Fermer la fenêtre et revenir à la commande"><i class="far fa-times-circle"></i></button>
+        <h2>Nous avons besoin de quelques informations pour envoyer cette commande</h2>
+        <form method="post">
+            <label for="order__modal--firstname">
+                Prénom :
+                <input id="order__modal--firstname" type="text" required placeholder="Entrez votre prénom" maxlength="500" />
+            </label>
+            <label for="order__modal--lastname">
+                Nom :
+                <input id="order__modal--lastname" type="text" required placeholder="Entrez votre nom" maxlength="500" />
+            </label>
+            <label for="order__modal--adress">
+                Adresse d'envoi :
+                <input id="order__modal--adress" type="text" required placeholder="Entrez votre adresse postal" maxlength="500" />
+            </label>
+            <label for="order__modal--email">
+                Votre email :
+                <input id="order__modal--email" type="email" required placeholder="Entrez votre adresse email" maxlength="500" />
+            </label>
+            <div class="order__controllers">
+                    <button class="order__controllers--reset" type="submit">Remettre à zéro</button>
+                    <button class="order__controllers--send">Envoyer commande</button>
+            </div>
+        </form>
+    </section>
 </main>
 <footer>
     <ul>
@@ -91,6 +121,8 @@
         <li><a href="#">Nos autres produits</a></li>
     </ul>
 </footer>
+
+<script src="../js/assets.js" defer></script>
 
 </body>
 </html>

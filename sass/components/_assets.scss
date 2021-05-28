@@ -20,6 +20,90 @@ hr {
   margin-top: 70px;
 }
 
-table {
-  margin: auto;
+.order__controllers button {
+  border: 1px solid white;
+  color: #2b1225;
+  width: 45vw;
+  height: 30px;
+  border-radius: 15px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 30px;
+
+}
+
+.order__controllers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--reset {
+    background-color: $danger;
+  }
+
+  &--send {
+    background-color: $validation;
+  }
+}
+
+.order__modal {
+  display: none;
+  position: fixed;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 60vh;
+  border-radius: 10px;
+  background-color: $primary-color;
+  border: 4px solid white;
+  z-index: 101;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .close {
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    opacity: 0.9;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    height: 30px;
+    padding: 0 10px;
+    margin-bottom: 5px;
+
+    &:focus {
+      box-shadow:0 0 5px 0 $primary-color-mid;
+      transition: all 300ms ease-in;
+      background-color: $primary-color;
+      color: black;
+    }
+
+  }
+
+  .order__controllers button{
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+ }
+
+.blackdrop {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.6;
+  position: fixed;
+  z-index: 100;
 }
