@@ -24,16 +24,16 @@
     <nav class="main-nav">
         <ul class="main-nav__menu">
             <li><a href="index.html" title="Se rendre à l'accueil d'Orinoco">Accueil</a></li>
-            <li><a href="public/html/basket.html" title="Voir mon panier">Panier</a></li>
+            <li><a href="public/html/cart.html" title="Voir mon panier">Panier</a></li>
             <li><a href="public/html/order.html" title="Suivre ma commande">Suivi de commande</a></li>
         </ul>
-        <form method="post" class="search">
+        <form method="post" id="search" class="search">
             <input type="text" class="search__input" placeholder="Cherchez sur le site..."
                    aria-label="Faire une recherche sur Orinoco"/>
             <i class="fas fa-search search__lens"></i>
         </form>
     </nav>
-    <img src="public/img/logo.png" class="logo" alt="Logo du site Orinoco"/>
+    <img src="public/img/logo.png" class="logo" id="mainLogo" alt="Logo du site Orinoco"/>
     <form method="post" class="search">
         <input type="text" class="search__input" placeholder="Cherchez sur le site..."
                aria-label="Faire une sur ce site"/>
@@ -49,7 +49,7 @@
             temporibus.</p>
     </section>
     <hr>
-    <section class="products">
+    <section class="products" id="products">
         <div class="products__container">
             <span class="hero"><i class="fas fa-meteor"></i> Notre dernier arrivé!</span>
             <figure>

@@ -6,6 +6,8 @@ Each const is pointing a HTML element and set appointed styles after playing ani
 const myBtn = document.getElementById('menu--actionner');
 const myMenu = document.getElementsByTagName('nav');
 const burgerSlice = document.getElementsByClassName('burgerSlice');
+const searchForm = document.getElementById('search');
+const headerLogo = document.getElementById('mainLogo');
 
 myBtn.addEventListener('click', () => {
         if(getComputedStyle(myMenu[0]).display != "none") {

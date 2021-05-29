@@ -16,14 +16,4 @@ footer {
 
   }
 
-  li:nth-of-type(1):after ,li:nth-of-type(2):after {
-    content: "";
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    opacity: 0.7;
-    background-color: $primary-color-darken;
-  }
-
 }
