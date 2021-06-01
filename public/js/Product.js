@@ -34,7 +34,7 @@ class Product {
                 <div class="single-product__headings">
                     <h3>${params.name}</h3>
                     <p class="single-product--price">
-                        ${params.price}
+                        ${params.price/100}€
                     </p>
                 </div>
                 <hr>
@@ -46,9 +46,7 @@ class Product {
                     <label for="varnish"> Vernis :
                         <select id="varnish">
                             <option value="">--Selectionnez une finition--</option>
-                            <option value="">Bleu</option>
-                            <option value="">Noir</option>
-                            <option value="">Jaune</option>
+                            
                         </select>
                     </label>
                     <label for="quantity"> Quantité :
