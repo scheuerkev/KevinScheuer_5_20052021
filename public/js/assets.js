@@ -44,6 +44,7 @@ closeOrderBtn.addEventListener('click', () => {
         blackdrop.classList.remove('blackdrop');
 });
 
+
 /*These EventListeners increase or decrease quantity of item ordered*/
 const minusBtn = document.getElementsByClassName('quantity__minus');
 const plusBtn = document.getElementsByClassName('quantity__plus');

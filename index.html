@@ -14,6 +14,17 @@
           referrerpolicy="no-referrer"/>
 </head>
 <body>
+<noscript>
+<div class="nojs">
+    <h2>Errrr, il semble que JavaScript soit desactive :(</h2>
+    <p>Pour fonctionner correctement, ce site nécessite JavaScript.
+        Découvrez comment l'activer en fonction de votre navigateur
+        en suivant <a href="https://www.enable-javascript.com/fr/"
+           title="Activer JavaScript pour tous les navigateurs">
+            ce lien</a></p>
+</div>
+</noscript>
+
 <div id="blackdrop"></div>
 <header class="top-bar">
     <button class="main-nav--actionner" id="menu--actionner" aria-label="Ouvrir le menu principal">
@@ -27,11 +38,6 @@
             <li><a href="public/html/cart.html" title="Voir mon panier">Panier</a></li>
             <li><a href="public/html/order.html" title="Suivre ma commande">Suivi de commande</a></li>
         </ul>
-        <form method="post" id="search" class="search">
-            <input type="text" class="search__input" placeholder="Cherchez sur le site..."
-                   aria-label="Faire une recherche sur Orinoco"/>
-            <i class="fas fa-search search__lens"></i>
-        </form>
     </nav>
     <img src="public/img/logo.png" class="logo" id="mainLogo" alt="Logo du site Orinoco"/>
     <form method="post" class="search">
@@ -50,56 +56,6 @@
     </section>
     <hr>
     <section class="products" id="products">
-        <div class="products__container">
-            <span class="hero"><i class="fas fa-meteor"></i> Notre dernier arrivé!</span>
-            <figure>
-                <a href="#" title="Voir les détail du produit 1">
-                    <img src="public/img/oak_1.jpg" alt="Meuble 1">
-                </a>
-                <figcaption><h3>Meuble en chene</h3></figcaption>
-            </figure>
-            <button><i class="fas fa-plus-square"></i>Voir plus</button>
-        </div>
-
-        <div class="products__container">
-            <figure>
-                <a href="#" title="Voir les détail du produit 2">
-                    <img src="public/img/oak_2.jpg" alt="Meuble 2">
-                </a>
-                <figcaption><h3>Meuble en chene</h3></figcaption>
-            </figure>
-            <button><i class="fas fa-plus-square"></i>Voir plus</button>
-        </div>
-
-        <div class="products__container">
-            <figure>
-                <a href="#" title="Voir les détail du produit 3">
-                    <img src="public/img/oak_3.jpg" alt="Meuble 3">
-                </a>
-                <figcaption><h3>Meuble en chene</h3></figcaption>
-            </figure>
-            <button><i class="fas fa-plus-square"></i>Voir plus</button>
-        </div>
-
-        <div class="products__container">
-            <figure>
-                <a href="#" title="Voir les détail du produit 4">
-                    <img src="public/img/oak_4.jpg" alt="Meuble 4">
-                </a>
-                <figcaption><h3>Meuble en chene</h3></figcaption>
-            </figure>
-            <button><i class="fas fa-plus-square"></i>Voir plus</button>
-        </div>
-
-        <div class="products__container">
-            <figure>
-                <a href="#" title="Voir les détail du produit 5">
-                    <img src="public/img/oak_5.jpg" alt="Meuble 5">
-                </a>
-                <figcaption><h3>Meuble en chene</h3></figcaption>
-            </figure>
-            <button><i class="fas fa-plus-square"></i>Voir plus</button>
-        </div>
     </section>
 </main>
 <footer>
@@ -110,7 +66,8 @@
     </ul>
 </footer>
 
-<script src="public/js/Ajax.js" defer></script>
+<script src="public/js/Request.js" defer></script>
+<script src="public/js/Product.js" defer></script>
 <script src="public/js/assets.js" defer></script>
 <script src="public/js/main.js" defer></script>
 </body>
