@@ -7,9 +7,10 @@ class Product {
         this.name = productsDatas.name;
         this.price = productsDatas.price;
         this.description = productsDatas.description;
-        this.imageUrl = productsDatas.url;
+        this.imageUrl = productsDatas.url;                                    //Staticly assign productsDatas in this instance
     }
 
+    //This method displayAllProducts on homePage of Orinoco
     displayAllProducts(params){
         let container = `<div class="products__container">
                             <span class="hero invisible"><i class="fas fa-meteor"></i> Notre dernier arrivé!</span>
@@ -19,12 +20,13 @@ class Product {
                                 </a>
                                 <figcaption><h3>${params.name}</h3></figcaption>
                             </figure>
-                             <button onclick="window.location.href = '../html/single_product.html?id=${params._id}';"><i class="fas fa-plus-square"></i>Voir plus</button>
+                             <button onclick="window.location.href = './public/html/single_product.html?id=${params._id}'"><i class="fas fa-plus-square"></i>Voir plus</button>
                         </div>`;
 
         return container;
     }
 
+    //This method a specific product on single product page of Orinoco
     displaySingleProduct(params) {
         let container = `<figure>
             <a href="#" title="Voir les détail de ${params.name}">
@@ -46,29 +48,36 @@ class Product {
                     <label for="varnish"> Vernis :
                         <select id="varnish">
                             <option value="">--Selectionnez une finition--</option>
-                            
                         </select>
                     </label>
                     <label for="quantity"> Quantité :
                         <select id="quantity">
                             <option value="">--Selectionnez une quantité--</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
-                            <option value="">9</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
                         </select>
                     </label>
-                    <button class="order__controller--send">Ajouter au panier</button>
+                    <button class="order__controller--send" id="order__controller--send">Ajouter au panier</button>
                 </form>
+                <span id="warning"></span>
             </figcaption>
         </figure>`;
 
         return container;
     }
+    
+    setVarnish(params) {
+        let container = `
+         <option value=${params}>${params}</option>
+        `;
+        return container;
 
+    }
 }

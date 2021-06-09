@@ -14,18 +14,17 @@
           referrerpolicy="no-referrer"/>
 </head>
 <body>
-<div class="blackdrop"></div>
 <header class="top-bar">
     <button class="main-nav--actionner" id="menu--actionner" aria-label="Ouvrir le menu principal">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="burgerSlice"></span>
+        <span class="burgerSlice"></span>
+        <span class="burgerSlice"></span>
     </button>
     <nav class="main-nav">
         <ul class="main-nav__menu">
-            <li><a href="index.html" title="Se rendre à l'accueil d'Orinoco">Accueil</a></li>
-            <li><a href="html/basket.html" title="Voir mon panier">Panier</a></li>
-            <li><a href="html/order.html" title="Suivre ma commande">Suivi de commande</a></li>
+            <li><a href="../../index.html" title="Se rendre à l'accueil d'Orinoco">Accueil</a></li>
+            <li><a href="../html/cart.html" title="Voir mon panier">Panier</a></li>
+            <li><a href="../html/order.html" title="Suivre ma commande">Suivi de commande</a></li>
         </ul>
         <form method="post" class="search">
             <input type="text" class="search__input" placeholder="Cherchez sur le site..."
@@ -49,7 +48,7 @@
         <p class="alert">
             Pas de panique, vous pouvez encore sortir de ce trou en cliquant ci-dessous  
         </p>
-        <button class="back-home" aria-label="Retourner à l'accueil">Sortez moi de là !</button>
+        <button class="back-home" id="back-home" aria-label="Retourner à l'accueil">Sortez moi de là !</button>
 </main>
 <footer>
     <ul>
@@ -58,6 +57,8 @@
         <li><a href="#">Nos autres produits</a></li>
     </ul>
 </footer>
+<script src="../js/assets.js" defer></script>
+<script src="../js/404.js" defer></script>
 
 </body>
 </html>

@@ -1,0 +1,5 @@
+class Validate {
+    constructor() {
+    }
+}
+
