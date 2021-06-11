@@ -11,7 +11,7 @@ class Product {
     }
 
     //This method displayAllProducts on homePage of Orinoco
-    displayAllProducts(params){
+    displayAllProducts(params) {
         let container = `<div class="products__container">
                             <span class="hero invisible"><i class="fas fa-meteor"></i> Notre dernier arrivé!</span>
                             <figure>
@@ -36,7 +36,7 @@ class Product {
                 <div class="single-product__headings">
                     <h3>${params.name}</h3>
                     <p class="single-product--price">
-                        ${params.price/100}€
+                        ${params.price / 100}€
                     </p>
                 </div>
                 <hr>
@@ -46,12 +46,12 @@ class Product {
                 </p>
                 <form>
                     <label for="varnish"> Vernis :
-                        <select id="varnish">
+                        <select id="varnish" required>
                             <option value="">--Selectionnez une finition--</option>
                         </select>
                     </label>
                     <label for="quantity"> Quantité :
-                        <select id="quantity">
+                        <select id="quantity" required>
                             <option value="">--Selectionnez une quantité--</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -72,7 +72,7 @@ class Product {
 
         return container;
     }
-    
+
     setVarnish(params) {
         let container = `
          <option value=${params}>${params}</option>
@@ -80,4 +80,9 @@ class Product {
         return container;
 
     }
+
+    setProducts(id, [quantity, varnish]) {
+        localStorage.setItem(id, JSON.stringify([quantity, varnish]));
+    }
+
 }
