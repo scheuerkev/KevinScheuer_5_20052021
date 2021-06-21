@@ -15,6 +15,12 @@ fetch("http://localhost:3000/api/furniture")  //Fetching API
 
     })
     .catch(err => {
+        document
+            .getElementById('products')
+            .innerHTML = `<div class="error"> 
+                            <i class="fas fa-plug"></i>
+                            <p>Help ! Quelqu'un a débranché une prise !</p>
+                            </div>`;
         throw err;                                        //Throw error !
     });
 

@@ -356,6 +356,12 @@ hr {
   text-align: center;
 }
 
+.error {
+  grid-column: 2/3;
+  font-size: 15rem;
+  text-align: center;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
