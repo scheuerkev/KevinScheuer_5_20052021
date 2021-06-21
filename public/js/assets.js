@@ -46,7 +46,7 @@ closeOrderBtn.addEventListener('click', () => {
 
 
 /*These EventListeners increase or decrease quantity of item ordered*/
-const minusBtn = document.getElementsByClassName('quantity__minus');
+/*const minusBtn = document.getElementsByClassName('quantity__minus');
 const plusBtn = document.getElementsByClassName('quantity__plus');
 const quantityCell = document.getElementsByClassName('quantityCell');
 let quantity = 1;
@@ -66,5 +66,5 @@ let quantity = 1;
                                 quantityCell[i].textContent = quantity;
                         });
                 }
-        }
+        }*/
 

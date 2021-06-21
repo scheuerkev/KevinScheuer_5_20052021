@@ -7,45 +7,33 @@ fetch("http://localhost:3000/api/furniture")
     .then(data => data.json())
     .then(value => {
 
-            for (let i = 0; i < localStorage.length; i++) {
-
-                for (let values of value) {
-                    let test = new Product(values);
-
-                    /*if (test.id === localStorage.key(i)) {
-                        document
-                            .getElementById('table__body')
-                            .innerHTML += `
-                    <tr>
-                          <td class="product__name">${test.name}</td>
-                          <td class="varnish">Chocolate</td>
-                          <td class="price">${test.price / 100}</td>
-                          <td class="quantity"><button class="quantity__control quantity__minus"><i class="fas fa-minus"></i></button><span class="quantityCell">${localStorage.getItem(test.id)}</span><button class="quantity__control quantity__plus"><i class="fas fa-plus"></i></button></td>
-                          <td class="total">${test.price * localStorage.getItem(test.id) / 100}</td>
-                    </tr>
-                    `;
-                    }*/
-                    getProduct(test);
-                }
+            for (let values of value) {
+                let cartItem = new Product(values);
+                cartItem.getProducts(values.id);
             }
+
+            let itemCartQty = document
+                .getElementsByClassName('quantityCell');
+
+            let totalItemCartQty = document
+                .getElementById('totalItemCartQty').innerText = setTotal(itemCartQty);
+
+            let itemCartPrice = document
+                .getElementsByClassName('total');
+
+            let totalItemCartPrice = document
+            .getElementById('totalItemCartPrice').innerText = setTotal(itemCartPrice);
+
         }
     )
     .catch(err => {
         throw err;
     });
 
-const getProduct = (val) => {
-    if (val.id === localStorage.key(i)) {
-        document
-            .getElementById('table__body')
-            .innerHTML += `
-                    <tr>
-                          <td class="product__name">${test.name}</td>
-                          <td class="varnish">Chocolate</td>
-                          <td class="price">${test.price / 100}</td>
-                          <td class="quantity"><button class="quantity__control quantity__minus"><i class="fas fa-minus"></i></button><span class="quantityCell">${localStorage.getItem(test.id)}</span><button class="quantity__control quantity__plus"><i class="fas fa-plus"></i></button></td>
-                          <td class="total">${test.price * localStorage.getItem(test.id) / 100}</td>
-                    </tr>
-                    `;
+const setTotal = (tab) => {
+    let total = 0;
+    for (let i = 0; i < tab.length; i++) {
+        total += parseInt(tab[i].innerText);
     }
+    return total;
 }

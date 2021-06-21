@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <title>Orinoco : Meubles en chêne | Validation</title>
-    <link rel=stylesheet type="text/css" href="public/css/main.css" />
-    <link rel=stylesheet type="text/css" href="public/css/normalizer.css" />
-
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orinoco : Meubles en chêne</title>
+    <link rel=stylesheet type="text/css" href="../css/normalizer.css"/>
+    <link rel=stylesheet type="text/css" href="../css/main.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
 </head>
 <body>
-<script src="../js/Validate.js" defer></script>
+<div id="blackdrop"></div>
+<header class="top-bar">
+    <button class="main-nav--actionner" id="menu--actionner" aria-label="Ouvrir le menu principal">
+        <span class="burgerSlice"></span>
+        <span class="burgerSlice"></span>
+        <span class="burgerSlice"></span>
+    </button>
+    <nav class="main-nav">
+        <ul class="main-nav__menu">
+            <li><a href="../../index.html" title="Se rendre à l'accueil d'Orinoco">Accueil</a></li>
+            <li><a href="../html/cart.html" title="Voir mon panier">Panier</a></li>
+            <li><a href="../html/order.html" title="Suivre ma commande">Suivi de commande</a></li>
+        </ul>
+    </nav>
+    <img src="../img/logo.png" class="logo" alt="Logo du site Orinoco"/>
+</header>
+<main>
+    <section class="headings">
+        <h1>Suivi de commande,</h1>
+        <h2>retrouvez vos informations de commande </h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam animi autem culpa
+            dolores doloribus ea, est eum expedita explicabo fugit ipsum molestias
+            nisi perferendis provident quidem ut? Expedita, repudiandae?</p>
+    </section>
+    <hr>
 
+</main>
+<footer>
+    <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">Mon compte</a></li>
+        <li><a href="#">Nos autres produits</a></li>
+    </ul>
+</footer>
+
+<script src="../js/Product.js" defer></script>
+<script src="../js/Item.js" defer></script>
+<script src="../js/single_product.js" defer></script>
+<script src="../js/assets.js" defer></script>
 </body>
 </html>

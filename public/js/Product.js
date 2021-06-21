@@ -26,7 +26,7 @@ class Product {
         return container;
     }
 
-    //This method a specific product on single product page of Orinoco
+    //This method display a specific product on single product page of Orinoco
     displaySingleProduct(params) {
         let container = `<figure>
             <a href="#" title="Voir les détail de ${params.name}">
@@ -73,6 +73,7 @@ class Product {
         return container;
     }
 
+    //This method set Varnish option for each product in item list
     setVarnish(params) {
         let container = `
          <option value=${params}>${params}</option>
@@ -81,8 +82,36 @@ class Product {
 
     }
 
+    //This method set a product to localStorage. To enforce security, only id, quantity and varnish are set in LS. Price and name provide from API
     setProducts(id, [quantity, varnish]) {
         localStorage.setItem(id, JSON.stringify([quantity, varnish]));
     }
+
+    //This method display a cart line for each localStorage item
+    getProducts(id) {
+        let datas = JSON.parse(localStorage.getItem(this.id));
+
+        for (let i=0; i<6; i++){
+            if (this.id === localStorage.key(i)) {
+                document
+                    .getElementById('table__body')
+                    .innerHTML += `
+                <tr>
+                      <td class="product__name">${this.name}</td>
+                      <td class="varnish">${datas[1]}</td>
+                      <td class="price">${this.price / 100}</td>
+                      <td class="quantity"><button class="quantity__control quantity__minus"><i class="fas fa-minus"></i></button><span class="quantityCell" id="quantityCell">${datas[0]}</span><button class="quantity__control quantity__plus"><i class="fas fa-plus"></i></button></td>
+                      <td class="total">${this.price * datas[0] / 100}</td>
+                </tr>
+                `;
+            }
+        }
+    }
+
+    //This method reset cart and enforce page reloading
+    cleanCart() {
+        localStorage.clear();
+        location.reload();
+}
 
 }
