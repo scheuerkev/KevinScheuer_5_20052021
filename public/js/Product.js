@@ -99,9 +99,9 @@ class Product {
                 <tr>
                       <td class="product__name">${this.name}</td>
                       <td class="varnish">${datas[1]}</td>
-                      <td class="price">${this.price / 100}</td>
+                      <td class="price">${this.price / 100}€</td>
                       <td class="quantity"><button class="quantity__control quantity__minus"><i class="fas fa-minus"></i></button><span class="quantityCell" id="quantityCell">${datas[0]}</span><button class="quantity__control quantity__plus"><i class="fas fa-plus"></i></button></td>
-                      <td class="total">${this.price * datas[0] / 100}</td>
+                      <td class="total">${this.price * datas[0] / 100}€</td>
                 </tr>
                 `;
             }

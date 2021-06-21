@@ -32,3 +32,11 @@ th, td {
     padding: 10px;
   }
 }
+
+tbody tr {
+  background-color: lighten($primary-color, 6%);
+}
+
+tfoot td[id] {
+  background-color: $primary-color;
+}
