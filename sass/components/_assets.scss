@@ -46,6 +46,16 @@ hr {
     background-color: $validation;
     margin-left: 10px;
   }
+
+  &--continue {
+    background-color: lighten($action, 40%);
+    margin-right: 5px;
+  }
+
+  &--cart {
+    background-color: lighten($action, 40%);
+    margin-left: 5px;
+  }
 }
 
 .order__modal {
@@ -107,6 +117,12 @@ hr {
   }
 }
 
+h2.confirmation__modal {
+
+  margin-bottom : 0;
+
+}
+
 .blackdrop {
   background-color: black;
   width: 100vw;
@@ -131,7 +147,18 @@ hr {
 }
 
 .error {
-  grid-column: 2/3;
+  @media (min-width: 768px) {
+    grid-column: 2/3;
+  }
   font-size: 15rem;
   text-align: center;
+}
+
+#warning {
+  margin: 10px auto;
+  height: 20px;
+  display: block;
+  color: #B42F2D;
+  text-align: center;
+  font-weight: bold;
 }

@@ -29,14 +29,13 @@
     }
 
     form {
-      margin-top: 20px;
       padding-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       @media (min-width: 520px) {
         width: 90%;
-        margin: 20px auto auto auto;
+        margin: auto;
       }
       @media (min-width: 1024px) {
         width: 70%;

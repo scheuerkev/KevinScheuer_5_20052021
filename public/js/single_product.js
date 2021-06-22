@@ -31,6 +31,7 @@ fetch("http://localhost:3000/api/furniture/" + currentUrl)                      
             } else {
                 warning.innerText = "";
                 product.setProducts(product.id, [selectQuantity.value, selectVarnish.value]);
+                displayModal();
                 e.preventDefault();
             }
         });
@@ -40,6 +41,38 @@ fetch("http://localhost:3000/api/furniture/" + currentUrl)                      
         console.error(err);                                 //Throw error !
     });
 
+function displayModal() {
+    document
+        .getElementById('confirmation__modal')
+        .style.display = "block";
+    document
+        .getElementById('blackdrop')
+        .classList.add('blackdrop');
 
+    document
+        .getElementById('btn__continue')
+        .addEventListener('click', function e() {
+            window.location.href = '../index.html';
+            e.preventDefault();
+        })
+
+    document
+        .getElementById('btn__cart')
+        .addEventListener('click', function e() {
+            window.location.href = '../html/cart.html';
+            e.preventDefault();
+        })
+
+    document
+        .getElementById('closeModalBtn')
+        .addEventListener('click', function e() {
+            document
+                .getElementById('confirmation__modal')
+                .style.display = "none";
+            document
+                .getElementById('blackdrop')
+                .classList.remove('blackdrop');
+        })
+}
 
 

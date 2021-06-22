@@ -44,6 +44,7 @@ class Product {
                 <p class="single-product--description">
                     ${params.description}
                 </p>
+                <span id="warning"></span>
                 <form>
                     <label for="varnish"> Vernis :
                         <select id="varnish" required>
@@ -66,7 +67,6 @@ class Product {
                     </label>
                     <button class="order__controller--send" id="order__controller--send">Ajouter au panier</button>
                 </form>
-                <span id="warning"></span>
             </figcaption>
         </figure>`;
 
