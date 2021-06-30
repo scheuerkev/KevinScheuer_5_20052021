@@ -4,6 +4,11 @@
 
 //proto
 
+const alphaMask = /^[a-zéèàêâùïüëA-ZÉÈÀÙ-\s\']{3,}$/;
+const numericMask = /^[0-9\s]{1,}$/;
+const zipMask = /^[0-9]{5}/;
+const emailMask = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
 const currentCart = JSON.parse(localStorage.getItem("cart"));
 
 fetch("http://localhost:3000/api/furniture")
@@ -34,7 +39,9 @@ fetch("http://localhost:3000/api/furniture")
                 }
 
             }
-
+        totalQtyInCells();
+        totalPriceInCells();
+        quantityControl();
         displayOrderModal();
         checkValidity(document.getElementById('order__modal--firstname'), (e) => alphaMask.test(e.target.value));
         checkValidity(document.getElementById('order__modal--lastname'), (e) => alphaMask.test(e.target.value));
@@ -43,11 +50,6 @@ fetch("http://localhost:3000/api/furniture")
         checkValidity(document.getElementById('order__modal--zipCode'), (e) => zipMask.test(e.target.value));
         checkValidity(document.getElementById('order__modal--city'), (e) => alphaMask.test(e.target.value));
         checkValidity(document.getElementById('order__modal--email'), (e) => emailMask.test(e.target.value));
-        document.getElementById('resetFormBtn').addEventListener('click', function (e) {
-            e.preventDefault();
-            resetForm();
-        });
-            quantityControl();
 
         }
     )
@@ -93,6 +95,7 @@ const displayOrderModal = () => {
         .getElementById('sendFormBtn')
         .addEventListener('click', function (e) {
             console.log("Envoi de la commande");
+            //Si tout est ok on  envoie : test
             window.location.reload();
         });
 
@@ -101,7 +104,8 @@ const displayOrderModal = () => {
         .getElementById('resetFormBtn')
         .addEventListener('click', function (e) {
             console.log("Vidage des champs");
-            window.location.reload();
+            resetForm();
+            e.preventDefault();
         });
 
 
@@ -122,10 +126,7 @@ document
         window.location.reload();
     });
 
-const alphaMask = /^[a-zéèàêâùïüëA-ZÉÈÀÙ-\s\']{3,}$/;
-const numericMask = /^[0-9\s]{1,}$/;
-const zipMask = /^[0-9]{5}/;
-const emailMask = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
 
 
 const checkValidity = (input, condition) => {
@@ -174,6 +175,8 @@ const quantityControl = () => {
                 currentQuantity--;
             }
             quantity[i].innerText = currentQuantity.toString();
+            totalQtyInCells();
+            totalPriceInCells();
         });
     }
 
@@ -184,11 +187,35 @@ const quantityControl = () => {
                 currentQuantity++;
             }
             quantity[i].innerText = currentQuantity.toString();
+            totalQtyInCells();
+            totalPriceInCells();
         });
     }
 
 }
 
-const totalInCells = () => {
+const totalQtyInCells = () => {
+        let totalItemCartQty = document.getElementById('totalItemCartQty');
+        let quantity = document.getElementsByClassName('quantityCell');
+        let sum = 0;
 
+        for (let i=0; i<quantity.length; i++) {
+            sum += parseInt(quantity[i].textContent);
+        }
+        totalItemCartQty.innerText = sum;
+}
+
+const totalPriceInCells = () => {
+    let totalItemCartPrice = document.getElementById('totalItemCartPrice');
+    let quantity = document.getElementsByClassName('quantityCell');
+    let priceLine = document.getElementsByClassName('price');
+    let totalPriceLine = document.getElementsByClassName('total');
+    let sum = 0;
+
+    for (let i=0; i<quantity.length; i++) {
+        totalPriceLine[i].textContent = parseInt(quantity[i].textContent) * parseInt(priceLine[i].textContent) + "€";
+        sum += parseInt(quantity[i].textContent) * parseInt(priceLine[i].textContent);
+    }
+
+    totalItemCartPrice.innerText = sum + "€";
 }
