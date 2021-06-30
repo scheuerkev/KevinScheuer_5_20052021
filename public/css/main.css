@@ -132,6 +132,10 @@ footer a {
   margin-left: 5px;
 }
 
+input:focus {
+  border: none;
+}
+
 @media (max-width: 767px) {
   .main-nav {
     display: none;
@@ -280,7 +284,7 @@ hr {
   margin-right: 5px;
 }
 .order__controllers--cart {
-  background-color: #c2d5e9;
+  background-color: #cee0c2;
   margin-left: 5px;
 }
 
@@ -385,6 +389,17 @@ h2.confirmation__modal {
   color: #B42F2D;
   text-align: center;
   font-weight: bold;
+}
+
+#order__controllers {
+  display: flex;
+}
+
+#empty__cart {
+  display: none;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Lato", sans-serif;
 }
 
 table {

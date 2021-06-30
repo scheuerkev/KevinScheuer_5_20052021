@@ -37,7 +37,7 @@
     </section>
     <hr>
         
-        <table>
+        <table id="table__cart">
           <thead>
               <tr>
                 <th>Modèle</th>
@@ -59,10 +59,11 @@
               </tr>
           </tfoot>  
        </table>
-    <div class="order__controllers">
-        <button class="order__controllers--reset">Remettre à zéro</button>
+    <div class="order__controllers" id="order__controllers">
+        <button class="order__controllers--reset" id="resetOrderBtn">Remettre à zéro</button>
         <button class="order__controllers--send" id="sendOrderBtn">Envoyer commande</button>
     </div>
+    <p id="empty__cart">Votre panier est vide. Faites-votre choix pour procéder à une commande</p>
     <section class="order__modal" id="order__modal">
         <button class="close" id="closeOrderBtn" aria-label="Fermer la fenêtre et revenir à la commande"><i class="far fa-times-circle"></i></button>
         <h2>Nous avons besoin de quelques informations pour envoyer cette commande</h2>
@@ -75,17 +76,29 @@
                 Nom :
                 <input id="order__modal--lastname" type="text" required placeholder="Entrez votre nom" maxlength="500" />
             </label>
-            <label for="order__modal--adress">
+            <label for="order__modal--numberAdress">
+                Numéro de rue :
+                <input id="order__modal--numberAdress" type="number" required placeholder="Entrez le numéro de rue" maxlength="10" />
+            </label>
+            <label for="order__modal--street">
                 Adresse d'envoi :
-                <input id="order__modal--adress" type="text" required placeholder="Entrez votre adresse postale" maxlength="500" />
+                <input id="order__modal--street" type="text" required placeholder="Entrez le nom de la rue" maxlength="500" />
+            </label>
+            <label for="order__modal--zipCode">
+                Code postal :
+                <input id="order__modal--zipCode" type="number" required placeholder="Entrez le code postal" maxlength="5" />
+            </label>
+            <label for="order__modal--city">
+                Ville :
+                <input id="order__modal--city" type="text" required placeholder="Entrez votre ville" maxlength="100" />
             </label>
             <label for="order__modal--email">
                 Votre email :
                 <input id="order__modal--email" type="email" required placeholder="Entrez votre adresse email" maxlength="500" />
             </label>
             <div class="order__controllers">
-                    <button class="order__controllers--reset" type="submit">Remettre à zéro</button>
-                    <button class="order__controllers--send">Envoyer commande</button>
+                    <button class="order__controllers--reset" id="resetFormBtn">Remettre à zéro</button>
+                    <button class="order__controllers--send" id="sendFormBtn">Envoyer commande</button>
             </div>
         </form>
     </section>

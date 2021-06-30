@@ -53,7 +53,7 @@ hr {
   }
 
   &--cart {
-    background-color: lighten($action, 40%);
+    background-color: lighten($validation, 2%);
     margin-left: 5px;
   }
 }
@@ -118,9 +118,7 @@ hr {
 }
 
 h2.confirmation__modal {
-
-  margin-bottom : 0;
-
+  margin-bottom: 0;
 }
 
 .blackdrop {
@@ -161,4 +159,15 @@ h2.confirmation__modal {
   color: #B42F2D;
   text-align: center;
   font-weight: bold;
+}
+
+#order__controllers {
+  display: flex;
+}
+
+#empty__cart {
+  display: none;
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
 }

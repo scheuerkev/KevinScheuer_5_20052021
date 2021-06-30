@@ -1,5 +1,6 @@
 let currentUrl = new URL(window.location.href);                         //Build a new URL object with current URL for comparision
 currentUrl = currentUrl.searchParams.get("id");
+let currentCart = JSON.parse(localStorage.getItem("cart"));
 
 
 fetch("http://localhost:3000/api/furniture/" + currentUrl)                        //Fetching API
@@ -30,7 +31,25 @@ fetch("http://localhost:3000/api/furniture/" + currentUrl)                      
                 e.preventDefault();
             } else {
                 warning.innerText = "";
-                product.setProducts(product.id, [selectQuantity.value, selectVarnish.value]);
+                let item = new Item(product.id, selectQuantity.value, selectVarnish.value);
+                if (currentCart) {
+                    for (let obj of currentCart) {
+                        if (obj.id.includes(product.id)) {
+                            Object.keys(obj).map(function (key) {
+                                obj[key] = item[key];
+                            });
+                        }
+                    }
+                    currentCart.push(item);
+                    localStorage.setItem("cart", JSON.stringify(currentCart));
+                } else {
+                    currentCart = [];
+                    currentCart.push(item);
+                    localStorage.setItem("cart", JSON.stringify(currentCart));
+
+                }
+
+
                 displayModal();
                 e.preventDefault();
             }
@@ -41,6 +60,7 @@ fetch("http://localhost:3000/api/furniture/" + currentUrl)                      
         console.error(err);                                 //Throw error !
     });
 
+//This function show a modal when form is granted to
 function displayModal() {
     document
         .getElementById('confirmation__modal')
@@ -51,21 +71,19 @@ function displayModal() {
 
     document
         .getElementById('btn__continue')
-        .addEventListener('click', function e() {
-            window.location.href = '../index.html';
-            e.preventDefault();
+        .addEventListener('click', function (e) {
+            document.location.href = "../../index.html";
         })
 
     document
         .getElementById('btn__cart')
-        .addEventListener('click', function e() {
-            window.location.href = '../html/cart.html';
-            e.preventDefault();
+        .addEventListener('click', function (e) {
+            document.location.href = "cart.html";
         })
 
     document
         .getElementById('closeModalBtn')
-        .addEventListener('click', function e() {
+        .addEventListener('click', function (e) {
             document
                 .getElementById('confirmation__modal')
                 .style.display = "none";

@@ -29,42 +29,19 @@ myBtn.addEventListener('click', () => {
 });
 
 /*This EventListener display modal for address and get the focus of all document on modal form*/
-const sendOrderBtn = document.getElementById('sendOrderBtn');
-const closeOrderBtn = document.getElementById('closeOrderBtn');
-const blackdrop = document.getElementById('blackdrop');
-const orderModal = document.getElementById('order__modal');
 
+/*
 sendOrderBtn.addEventListener('click', () => {
         orderModal.style.display = "block";
         blackdrop.classList.add('blackdrop');
 });
-
+*/
+/*
 closeOrderBtn.addEventListener('click', () => {
         orderModal.style.display = "none";
         blackdrop.classList.remove('blackdrop');
 });
+*/
 
 
-/*These EventListeners increase or decrease quantity of item ordered*/
-/*const minusBtn = document.getElementsByClassName('quantity__minus');
-const plusBtn = document.getElementsByClassName('quantity__plus');
-const quantityCell = document.getElementsByClassName('quantityCell');
-let quantity = 1;
-
-        if(quantity > 0) {
-                for (let i = 0; i < minusBtn.length; i++) {
-                        minusBtn[i].addEventListener('click', () => {
-                                quantity--;
-                                console.log(quantity);
-                                quantityCell[i].textContent = quantity;
-                        });
-                }
-                for (let i = 0; i < plusBtn.length; i++) {
-                        plusBtn[i].addEventListener('click', () => {
-                                quantity++;
-                                console.log(quantity);
-                                quantityCell[i].textContent = quantity;
-                        });
-                }
-        }*/
 
