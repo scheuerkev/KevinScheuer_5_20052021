@@ -24,19 +24,6 @@ fetch("http://localhost:3000/api/furniture")  //Fetching API
         throw err;                                        //Throw error !
     });
 
-/*let test;
-const getFurniture = async () => {
-    const response = await fetch("http://localhost:3000/api/furniture");
-    const data = await response.json();
-
-    addFurniture(data);
-
-}
-getFurniture();
-
-const addFurniture = (data) => {
-    // html
-}*/
 
 
 

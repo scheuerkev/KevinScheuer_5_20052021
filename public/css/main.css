@@ -402,6 +402,14 @@ h2.confirmation__modal {
   font-family: "Lato", sans-serif;
 }
 
+.alertMessage {
+  display: block;
+  height: 10px;
+  color: #B42F2D;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

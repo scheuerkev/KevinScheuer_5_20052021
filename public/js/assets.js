@@ -28,20 +28,4 @@ myBtn.addEventListener('click', () => {
 
 });
 
-/*This EventListener display modal for address and get the focus of all document on modal form*/
-
-/*
-sendOrderBtn.addEventListener('click', () => {
-        orderModal.style.display = "block";
-        blackdrop.classList.add('blackdrop');
-});
-*/
-/*
-closeOrderBtn.addEventListener('click', () => {
-        orderModal.style.display = "none";
-        blackdrop.classList.remove('blackdrop');
-});
-*/
-
-
 

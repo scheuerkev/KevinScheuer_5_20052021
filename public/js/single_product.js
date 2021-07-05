@@ -33,15 +33,57 @@ fetch("http://localhost:3000/api/furniture/" + currentUrl)                      
                 warning.innerText = "";
                 let item = new Item(product.id, selectQuantity.value, selectVarnish.value);
                 if (currentCart) {
+                console.log(currentCart);
+
+                    if (currentCart.some(articles => articles.id === item.id && articles.varnish === item.varnish)) {
+                        currentCart = currentCart.map(article => {
+                            if (article.id === item.id && article.varnish === item.varnish) {
+                                article.quantity += item.quantity;
+                            }
+                            return article;
+                        })
+                    } else {
+                        currentCart.push(item);
+
+                    }
+                    localStorage.setItem("cart", JSON.stringify(currentCart));
+                    /*
+                    var test=true;
+
                     for (let obj of currentCart) {
-                        if (obj.id.includes(product.id)) {
-                            Object.keys(obj).map(function (key) {
+
+                        if (currentCart.some(() => {
+                            return item.id === obj.id && selectVarnish.value === obj.varnish;
+                        })) {
+                            Object.keys(obj).map((key) => {
                                 obj[key] = item[key];
+                                test = false;
+                                localStorage.setItem("cart", JSON.stringify(currentCart));
+
                             });
                         }
                     }
-                    currentCart.push(item);
-                    localStorage.setItem("cart", JSON.stringify(currentCart));
+*/
+                    /*const myUsers = [
+                        { name: 'shark', likes: 'ocean' },
+                        { name: 'turtle', likes: 'pond' },
+                        { name: 'otter', likes: 'fish biscuits' }
+                    ]
+
+                    const usersByLikes = myUsers.map(item => {
+                        const container = {};
+
+                        container[item.name] = item.likes;
+                        container.age = item.name.length * 10;
+
+                        return container;
+                    })
+
+                    console.log(usersByLikes);*/
+
+                    /*currentCart.push(item);
+                    localStorage.setItem("cart", JSON.stringify(currentCart));*/
+
                 } else {
                     currentCart = [];
                     currentCart.push(item);
@@ -61,7 +103,7 @@ fetch("http://localhost:3000/api/furniture/" + currentUrl)                      
     });
 
 //This function show a modal when form is granted to
-function displayModal() {
+const displayModal = () => {
     document
         .getElementById('confirmation__modal')
         .style.display = "block";
@@ -94,3 +136,6 @@ function displayModal() {
 }
 
 
+const test = () => {
+    return item.id === obj.id && selectVarnish.value === obj.varnish;
+}

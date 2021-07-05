@@ -70,35 +70,32 @@
         <form method="post">
             <label for="order__modal--firstname">
                 Prénom :
-                <input id="order__modal--firstname" type="text" required placeholder="Entrez votre prénom" maxlength="500" />
+                <input id="order__modal--firstname" type="text"  placeholder="Entrez votre prénom" maxlength="500" />
             </label>
+            <span class="alertMessage"></span>
             <label for="order__modal--lastname">
                 Nom :
-                <input id="order__modal--lastname" type="text" required placeholder="Entrez votre nom" maxlength="500" />
+                <input id="order__modal--lastname" type="text"  placeholder="Entrez votre nom" maxlength="500" />
             </label>
-            <label for="order__modal--numberAdress">
-                Numéro de rue :
-                <input id="order__modal--numberAdress" type="number" required placeholder="Entrez le numéro de rue" maxlength="10" />
-            </label>
-            <label for="order__modal--street">
+            <span class="alertMessage"></span>
+            <label for="order__modal--address">
                 Adresse d'envoi :
-                <input id="order__modal--street" type="text" required placeholder="Entrez le nom de la rue" maxlength="500" />
+                <input id="order__modal--address" type="text"  placeholder="Entrez le nom de la rue" maxlength="500" />
             </label>
-            <label for="order__modal--zipCode">
-                Code postal :
-                <input id="order__modal--zipCode" type="number" required placeholder="Entrez le code postal" maxlength="5" />
-            </label>
+            <span class="alertMessage"></span>
             <label for="order__modal--city">
                 Ville :
-                <input id="order__modal--city" type="text" required placeholder="Entrez votre ville" maxlength="100" />
+                <input id="order__modal--city" type="text"  placeholder="Entrez votre ville" minlength="3" maxlength="100" />
             </label>
+            <span class="alertMessage"></span>
             <label for="order__modal--email">
                 Votre email :
-                <input id="order__modal--email" type="email" required placeholder="Entrez votre adresse email" maxlength="500" />
+                <input id="order__modal--email" type="email"  placeholder="Entrez votre adresse email" maxlength="500" />
             </label>
+            <span class="alertMessage"></span>
             <div class="order__controllers">
                     <button class="order__controllers--reset" id="resetFormBtn">Remettre à zéro</button>
-                    <button class="order__controllers--send" id="sendFormBtn">Envoyer commande</button>
+                    <button class="order__controllers--send" type="submit" id="sendFormBtn">Envoyer commande</button>
             </div>
         </form>
     </section>
