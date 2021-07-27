@@ -1,3 +1,11 @@
+/*COLORS SCHEME*/
+/*GLOBAL SETTINGS*/
+@font-face {
+  font-family: "Belligerent-Madness";
+  src: url("../../public/fonts/Belligerent-Madness.ttf.woff") format("woff"), url("../../public/fonts/Belligerent-Madness.ttf.svg#Belligerent-Madness") format("svg"), url("../../public/fonts/Belligerent-Madness.ttf.eot"), url("../../public/fonts/Belligerent-Madness.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   font-size: 10px;
 }
@@ -12,14 +20,6 @@
   }
 }
 
-/*COLORS SCHEME*/
-/*GLOBAL SETTINGS*/
-@font-face {
-  font-family: "Belligerent-Madness";
-  src: url("../../public/fonts/Belligerent-Madness.ttf.woff") format("woff"), url("../../public/fonts/Belligerent-Madness.ttf.svg#Belligerent-Madness") format("svg"), url("../../public/fonts/Belligerent-Madness.ttf.eot"), url("../../public/fonts/Belligerent-Madness.ttf.eot?#iefix") format("embedded-opentype");
-  font-weight: normal;
-  font-style: normal;
-}
 h1, h2, h3, h4, h5, h6 {
   font-family: "Belligerent-Madness", "Permanent Marker", cursive;
   color: #2b1225;

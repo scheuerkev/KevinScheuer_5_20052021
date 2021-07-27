@@ -1,15 +1,3 @@
-:root {
-  font-size: 10px;
-
-  @media (min-width: 768px) {
-    font-size: 11px;
-  }
-  @media (min-width: 1024px) {
-    font-size: 12px;
-  }
-
-}
-
 /*COLORS SCHEME*/
 
 $primary-color : hsl(317,41,93);

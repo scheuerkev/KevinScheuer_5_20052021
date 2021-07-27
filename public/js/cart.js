@@ -164,30 +164,7 @@ const resetOrder = () => {
         });
 }
 
-//Form validity functions
-const checkValidity = (input, condition) => {
-    input.oninput = (e) => {
-        if (condition(e)) {
-            allowEntry(e.target);
-        } else {
-            warnEntry(e.target);
-        }
-        input.onblur = (e) => {
-            if (!condition(e)) {
-                denyEntry(e.target);
-            }
-        }
-    }
-}
-const allowEntry = (input) => {
-    input.style.border = "2px solid green";
-}
-const warnEntry = (input) => {
-    input.style.border = "2px solid orange";
-}
-const denyEntry = (input) => {
-    input.style.border = "2px solid red";
-}
+//Form functions
 const resetForm = () => {
     let entries = document
         .getElementsByTagName('input');
@@ -226,7 +203,7 @@ const sendOrder = () => {
             products: products,
         };
 
-        const request = new Request( // On crée notre requête POST vers API
+        const request = new Request( // On crée notre requête POST vers l'API
             "http://localhost:3000/api/furniture/order",
             {
                 method: "POST",
@@ -243,10 +220,12 @@ const sendOrder = () => {
             .then((response) => { //on récupère la réponse de l'API pour obtenir numéro de commande
                 let orderId = response.orderId;
                 let totalItemCartPrice = document.getElementById('totalItemCartPrice');
+                totalItemCartPrice = totalItemCartPrice.innerText.split('€');
+
                 //console.log(orderId)
                 //localStorage.setItem("idCommand", JSON.stringify(orderId)); // on met à jour le localstorage avec numero de commande
                 localStorage.removeItem("cart"); // on met à jour le localstorage avec infos de commande
-                window.location.href = `./order.html?orderId=${orderId}?totalPrice=${totalItemCartPrice.innerText}`;
+                window.location.href = `./order.html?orderId=${orderId}?totalPrice=${totalItemCartPrice[0]}`;
             })
             .catch(err => {
                 throw err;

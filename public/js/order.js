@@ -9,7 +9,7 @@ if (currentOrderId) {
     orderInfos.innerHTML = `
                         <p>Merci pour votre commande. <br>
                          Celle-ci porte le numéro ${orderDatas[0]}, pour un montant total de 
-                   ${orderDatas[1]}</p>    
+                   ${orderDatas[1]}€</p>    
 `;
 } else {
     orderInfos.innerHTML = `
