@@ -4,7 +4,9 @@
 
 const currentCart = JSON.parse(localStorage.getItem("cart"));
 
-fetch("http://localhost:3000/api/furniture")
+loadConfig().then(data => {
+    config = data;
+fetch(config.host + "/api/furniture")
     .then(data => data.json())
     .then(value => {
 
@@ -300,3 +302,4 @@ const testEmail = (input) => {
     }
 }
 
+});

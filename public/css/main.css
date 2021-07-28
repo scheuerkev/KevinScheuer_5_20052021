@@ -243,6 +243,7 @@ hr {
 
 .back-home {
   width: 75vw;
+  max-width: 250px;
   height: 10vh;
   border-radius: 60px;
   border: 1px solid #2b1225;
