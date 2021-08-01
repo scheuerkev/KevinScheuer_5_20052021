@@ -1,32 +1,31 @@
 loadConfig().then(data => {
     console.log("Host config loaded");
-    //Fetching API
+    //fetching API
     fetch(data.host + "/api/furniture")
-        //Promise return raw datas parsed from JSON
+        //promise return raw datas parsed from JSON
         .then(data => {
-            console.log("API connexion OK");
+            console.log("API connection OK");
             return data.json();
         })
-        //Got a promise with JS Object now
+        //got a promise with JS Object now
         .then(values => {
             console.log("Get results from API");
             for (let value of values) {
-                //Building new product from Product class for each value in values array returned
+                //building new product from Product class for each value in values array returned
                 let product = new Product(value);
-                //Adding a product card in products html section
+                //adding a product card in products html section
                 document
                     .getElementById('products')
                     .innerHTML += product.displayAllProducts(value);
             }
 
+            //remove invisible class to hero class be only shown on first product
             let hero = document.getElementsByClassName('hero');
-            //Remove invisible class to hero class be only shown on first product
             hero[0].classList.remove('invisible');
-
-
         })
+
         .catch(err => {
-            //Catch and throw error of fetching API promise
+            //catch and throw error of fetching API promise
             console.error("API error : " + err);
             document
                 .getElementById('products')
@@ -37,7 +36,7 @@ loadConfig().then(data => {
         });
     })
     .catch(err => {
-        //Catch and throw error of fetching config.json promise
+        //catch and throw error of fetching config.json promise
         console.error("Host config error : " + err);
         document
             .getElementById('products')
@@ -46,7 +45,3 @@ loadConfig().then(data => {
                             <p>Help ! Il semble qu'il y ait un problème avec la configuration du serveur !</p>
                             </div>`;
     });
-
-
-
-

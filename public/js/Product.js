@@ -1,13 +1,13 @@
 //Product class operates construction of objects from a data list properties
-
 class Product {
 
     constructor(productsDatas) {
+        //Staticly assign productsDatas in this instance
         this.id = productsDatas._id;
         this.name = productsDatas.name;
         this.price = productsDatas.price;
         this.description = productsDatas.description;
-        this.imageUrl = productsDatas.url;                                    //Staticly assign productsDatas in this instance
+        this.imageUrl = productsDatas.url;
     }
 
     //This method displayAllProducts on homePage of Orinoco
