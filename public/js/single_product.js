@@ -69,7 +69,7 @@ loadConfig().then(data => {
                         currentCart.push(item);
                         localStorage.setItem("cart", JSON.stringify(currentCart));
                     }
-                    displayModal();
+                    displayValidationModal();
                     e.preventDefault();
                 }
             });
@@ -81,8 +81,8 @@ loadConfig().then(data => {
             console.error("API error: " + err);
         });
 
-//display a confirmation modal when form is granted to and redirect customer
-    const displayModal = () => {
+//display a validation modal when form is granted and redirect user
+    const displayValidationModal = () => {
         document
             .getElementById('confirmation__modal')
             .style.display = "block";
@@ -93,13 +93,13 @@ loadConfig().then(data => {
         document
             .getElementById('btn__continue')
             .addEventListener('click', () => {
-                document.location.href = "../../index.html";
+                window.location.href = '../../index.html';
             })
 
         document
             .getElementById('btn__cart')
             .addEventListener('click', () => {
-                document.location.href = "cart.html";
+                window.location.href = '../html/cart.html';
             })
 
         document
