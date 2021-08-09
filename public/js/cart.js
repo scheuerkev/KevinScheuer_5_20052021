@@ -120,6 +120,7 @@ loadConfig().then(data => {
     }
 
 //cart manipulation functions
+    //hideCart table if localStorage is empty
     const hideCart = () => {
         document
             .getElementById("order__controllers")
@@ -133,6 +134,7 @@ loadConfig().then(data => {
             .getElementById("empty__cart")
             .style.display = "block";
     }
+    //when order button is clicked from currentCart table, display a form modal
     const displayOrderModal = () => {
         let orderModal = document.getElementById('order__modal');
         let blackDrop = document.getElementById('blackdrop');
@@ -165,6 +167,7 @@ loadConfig().then(data => {
                 blackDrop.classList.remove('blackdrop');
             });
     }
+    //resetOrder function remove current cart and reload current page
     const resetOrder = () => {
         document
             .getElementById('resetOrderBtn')
@@ -175,6 +178,7 @@ loadConfig().then(data => {
     }
 
 //form functions
+    //resetForm empty forms inputs
     const resetForm = () => {
         let entries = document
             .getElementsByTagName('input');
@@ -182,34 +186,34 @@ loadConfig().then(data => {
             entries[i].value = "";
         }
     }
+    //sendOrder build contact object and call testFields
     const sendOrder = () => {
-        //build contact object from form values
-        const contact = {
-            firstName: document.getElementById("order__modal--firstname").value,
-            lastName: document.getElementById("order__modal--lastname").value,
-            address: document.getElementById("order__modal--address").value,
-            city: document.getElementById("order__modal--city").value,
-            email: document.getElementById("order__modal--email").value,
-        };
-        //test inputs
-        if (!(testFirstName(contact.firstName)) ||
-            !(testLastName(contact.lastName)) ||
-            !(testAddress(contact.address)) ||
-            !(testCity(contact.city)) ||
-            !(testEmail(contact.email))
-        ) {
+        const firstName = document.getElementById("order__modal--firstname").value;
+        const lastName = document.getElementById("order__modal--lastname").value;
+        const address = document.getElementById("order__modal--address").value;
+        const city = document.getElementById("order__modal--city").value;
+        const email = document.getElementById('order__modal--email').value;
 
-        } else {
-            const products = [];
-            currentCart.forEach(product => {
-                products.push(product.id);
-            });
-            //build order object as waited from server
-            let order = {
-                contact: contact,
-                products: products,
-            };
+        const contact = {
+            firstName: firstName,
+            lastName: lastName,
+            address: address,
+            city: city,
+            email: email
+        };
+        const products = [];
+        currentCart.forEach(product => {
+            products.push(product.id);
+        });
+        //build order object as waited from server
+        let order = {
+            contact: contact,
+            products: products,
+        };
+
+        if (testFields(contact)) {
             //build POST request
+        console.log("Order datas :" + JSON.stringify(order));
             loadConfig().then(data => {
                 console.log("Host config loaded");
                 const request = new Request(
@@ -249,69 +253,54 @@ loadConfig().then(data => {
                     console.error("Host config error : " + err);
                 });
         }
-
     }
-
-//regex definition
-    const alphaMask = /^[A-ZÉÈÀÙ][A-ZÉÈÀÙa-zéèàù' -]{2,30}$/;
-    const alphaNumMask = /^[A-ZÉÈÀÙa-zéèàêâùïüëA-Z0-9-\s,']{5,50}$/;
-    const emailMask = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 //input validation
-    const testFirstName = (input) => {
-        const alertMessage = document.getElementsByClassName('alertMessage');
+    //testFields check validity on each input form. It tests datas with proper regexp and set a message if test fails.
+    const testFields = (input) => {
+        //regex definition
+        const alphaMask = /^[A-ZÉÈÀÙ][A-ZÉÈÀÙa-zéèàù' -]{2,30}$/;
+        const alphaNumMask = /^[A-ZÉÈÀÙa-zéèàêâùïüëA-Z0-9-\s,']{5,50}$/;
+        const emailMask = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-        if (!(alphaMask.test(input))) {
-            alertMessage[0].innerText = "Ce champ pose problème, merci de le corriger";
-            return false;
+        const alertMessage = document.getElementsByClassName('alertMessage');
+        //valid boolean is update when a regexp test fail
+        let valid = true;
+
+        if (!(alphaMask.test(input.firstName))) {
+            valid = false;
+            alertMessage[0].innerText = "Ce champ n'est pas rempli correctement";
         } else {
             alertMessage[0].innerText = "";
-            return true;
         }
-    }
-    const testLastName = (input) => {
-        const alert = document.getElementsByClassName('alertMessage');
 
-        if (!(alphaMask.test(input))) {
-            alert[1].innerText = "Ce champ pose problème, merci de le corriger";
-            return false;
+        if (!(alphaMask.test(input.lastName))) {
+            valid = false;
+            alertMessage[1].innerText = "Ce champ n'est pas rempli correctement";
         } else {
-            alert[1].innerText = "";
-            return true;
+            alertMessage[1].innerText = "";
         }
-    }
-    const testAddress = (input) => {
-        const alert = document.getElementsByClassName('alertMessage');
 
-        if (!(alphaNumMask.test(input))) {
-            alert[2].innerText = "Ce champ pose problème, merci de le corriger";
-            return false;
+        if (!(alphaNumMask.test(input.address))) {
+            valid = false;
+            alertMessage[2].innerText = "Ce champ n'est pas rempli correctement";
         } else {
-            alert[2].innerText = "";
-            return true;
+            alertMessage[2].innerText = "";
         }
-    }
-    const testCity = (input) => {
-        const alert = document.getElementsByClassName('alertMessage');
 
-        if (!(alphaMask.test(input))) {
-            alert[3].innerText = "Ce champ pose problème, merci de le corriger";
-            return false;
+        if (!(alphaMask.test(input.city))) {
+            valid = false;
+            alertMessage[3].innerText = "Ce champ n'est pas rempli correctement";
         } else {
-            alert[3].innerText = "";
-            return true;
+            alertMessage[3].innerText = "";
         }
-    }
-    const testEmail = (input) => {
-        const alert = document.getElementsByClassName('alertMessage');
 
-        if (!(emailMask.test(input))) {
-            alert[4].innerText = "Ce champ pose problème, merci de le corriger";
-            return false;
+        if (!(emailMask.test(input.email))) {
+            valid = false;
+            alertMessage[4].innerText = "Ce champ n'est pas rempli correctement";
         } else {
-            alert[4].innerText = "";
-            return true;
+            alertMessage[4].innerText = "";
         }
+        return valid;
     }
-
 });

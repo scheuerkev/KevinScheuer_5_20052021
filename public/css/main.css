@@ -405,6 +405,7 @@ h2.confirmation__modal {
 
 .alertMessage {
   display: block;
+  text-align: right;
   height: 10px;
   color: #B42F2D;
   font-size: 1rem;
