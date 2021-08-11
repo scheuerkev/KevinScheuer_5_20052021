@@ -1,8 +1,7 @@
-//Product class operates construction of objects from a data list properties
+//Product class set properties and methods on fetched datas
 class Product {
 
     constructor(productsDatas) {
-        //Staticly assign productsDatas in this instance
         this.id = productsDatas._id;
         this.name = productsDatas.name;
         this.price = productsDatas.price;
@@ -10,7 +9,7 @@ class Product {
         this.imageUrl = productsDatas.url;
     }
 
-    //This method displayAllProducts on homePage of Orinoco
+    //this method displayAllProducts on homePage of Orinoco
     displayAllProducts(params) {
         let container = `<div class="products__container">
                             <span class="hero invisible"><i class="fas fa-meteor"></i> Notre dernier arrivé!</span>
@@ -26,7 +25,7 @@ class Product {
         return container;
     }
 
-    //This method display a specific product on single product page of Orinoco
+    //this method displaySingleProduct show a specific product on single product page of app
     displaySingleProduct(params) {
         let container = `<figure>
             <a href="#" title="Voir les détail de ${params.name}">
@@ -73,13 +72,10 @@ class Product {
         return container;
     }
 
-    //This method set Varnish option for each product in item list
+    //setVarnish method set options for each product
     setVarnish(params) {
-        let container = `
-         <option value=${params}>${params}</option>
-        `;
+        let container = `<option value=${params}>${params}</option>`;
+
         return container;
-
     }
-
 }

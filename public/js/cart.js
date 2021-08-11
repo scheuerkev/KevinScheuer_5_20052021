@@ -258,10 +258,10 @@ loadConfig().then(data => {
 //input validation
     //testFields check validity on each input form. It tests datas with proper regexp and set a message if test fails.
     const testFields = (input) => {
-        //regex definition
+        //regexp patterns
         const alphaMask = /^[A-ZÉÈÀÙ][A-ZÉÈÀÙa-zéèàù' -]{2,30}$/;
         const alphaNumMask = /^[A-ZÉÈÀÙa-zéèàêâùïüëA-Z0-9-\s,']{5,50}$/;
-        const emailMask = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        const emailMask = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]{2,})*$/;
 
         const alertMessage = document.getElementsByClassName('alertMessage');
         //valid boolean is update when a regexp test fail
@@ -269,35 +269,35 @@ loadConfig().then(data => {
 
         if (!(alphaMask.test(input.firstName))) {
             valid = false;
-            alertMessage[0].innerText = "Ce champ n'est pas rempli correctement";
+            alertMessage[0].innerText = "Le prénom doit être compris entre 2 et 30 caractères, uniquement des lettres";
         } else {
             alertMessage[0].innerText = "";
         }
 
         if (!(alphaMask.test(input.lastName))) {
             valid = false;
-            alertMessage[1].innerText = "Ce champ n'est pas rempli correctement";
+            alertMessage[1].innerText = "Le nom doit être compris entre 2 et 30 caractères, uniquement des lettres";
         } else {
             alertMessage[1].innerText = "";
         }
 
         if (!(alphaNumMask.test(input.address))) {
             valid = false;
-            alertMessage[2].innerText = "Ce champ n'est pas rempli correctement";
+            alertMessage[2].innerText = "L'addresse doit être compris entre 5 et 50 caractères, lettres et chiffres";
         } else {
             alertMessage[2].innerText = "";
         }
 
         if (!(alphaMask.test(input.city))) {
             valid = false;
-            alertMessage[3].innerText = "Ce champ n'est pas rempli correctement";
+            alertMessage[3].innerText = "La ville doit être compris entre 2 et 30 caractères, uniquement des lettres";
         } else {
             alertMessage[3].innerText = "";
         }
 
         if (!(emailMask.test(input.email))) {
             valid = false;
-            alertMessage[4].innerText = "Ce champ n'est pas rempli correctement";
+            alertMessage[4].innerText = "L'adresse email doit être de la forme : monaddresse@email.xyz";
         } else {
             alertMessage[4].innerText = "";
         }

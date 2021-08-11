@@ -1,4 +1,4 @@
-//build a new URL object with current URL for comparision
+//build a new URL object with current URL for comparison
 let currentUrl = new URL(window.location.href);
 currentUrl = currentUrl.searchParams.get("id");
 
