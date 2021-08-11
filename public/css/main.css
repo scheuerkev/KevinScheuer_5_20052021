@@ -164,6 +164,17 @@ input:focus {
     transform-origin: 0 0;
     transition: all 180ms ease-in;
   }
+  .main-nav--actionner .transformFirstSlice {
+    transform: rotate(45deg) translate(0, -2px);
+  }
+  .main-nav--actionner .transformSecondSlice {
+    transform: rotate(0) scale(0.2, 0.2);
+    opacity: 0;
+    transform-origin: 0 100%;
+  }
+  .main-nav--actionner .transformThirdSlice {
+    transform: rotate(-45deg) translate(-1px, 0);
+  }
   .main-nav a {
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -191,6 +202,10 @@ input:focus {
   }
   .main-nav li:last-of-type:after {
     content: none;
+  }
+
+  .showMenu {
+    display: block;
   }
 }
 @media (min-width: 768px) {

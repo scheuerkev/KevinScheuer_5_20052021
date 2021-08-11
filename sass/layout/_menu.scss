@@ -28,8 +28,21 @@
         transform-origin: 0 0;
         transition: all 180ms ease-in;
       }
-    }
 
+      .transformFirstSlice {
+        transform: rotate(45deg) translate(0, -2px);
+      }
+
+      .transformSecondSlice {
+        transform: rotate(0) scale(0.2, 0.2);
+        opacity: 0;
+        transform-origin: 0 100%;
+      }
+
+      .transformThirdSlice {
+        transform: rotate(-45deg) translate(-1px, 0);
+      }
+    }
 
     a {
       text-transform: uppercase;
@@ -42,7 +55,6 @@
       &:visited {
         color: initial;
       }
-
     }
 
     li {
@@ -66,7 +78,10 @@
         content: none;
       }
     }
+  }
 
+  .showMenu {
+    display: block;
   }
 }
 
@@ -93,7 +108,5 @@
         width: 650px;
       }
     }
-
   }
-
 }
