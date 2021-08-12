@@ -213,7 +213,7 @@ loadConfig().then(data => {
 
         if (testFields(contact)) {
             //build POST request
-        console.log("Order datas :" + JSON.stringify(order));
+            console.log("Order datas :" + JSON.stringify(order));
             loadConfig().then(data => {
                 console.log("Host config loaded");
                 const request = new Request(

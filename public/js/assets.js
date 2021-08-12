@@ -3,7 +3,7 @@ const toggleMenu = document.getElementsByTagName('nav');
 const burgerSlice = document.getElementsByClassName('burgerSlice');
 
 //toggle mobile menu controls
-const dropdownFunction = () => {
+const dropDownToggle = () => {
     toggleMenu[0].classList.toggle("showMenu");
     burgerSlice[0].classList.toggle("transformFirstSlice");
     burgerSlice[1].classList.toggle("transformSecondSlice");
