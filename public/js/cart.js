@@ -259,9 +259,9 @@ loadConfig().then(data => {
     //testFields check validity on each input form. It tests datas with proper regexp and set a message if test fails.
     const testFields = (input) => {
         //regexp patterns
-        const alphaMask = /^[A-ZÉÈÀÙ][A-ZÉÈÀÙa-zéèàù' -]{2,30}$/;
-        const alphaNumMask = /^[A-ZÉÈÀÙa-zéèàêâùïüëA-Z0-9-\s,']{5,50}$/;
-        const emailMask = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]{2,})*$/;
+        const alphaMask = /^[A-ZÉÈÀÙa-zéèàêâùïüë'\s-]{2,30}$/;
+        const alphaNumMask = /^[A-ZÉÈÀÙa-zéèàêâùïüë0-9-\s,']{5,50}$/;
+        const emailMask = /^[a-z0-9-_]*[.]{0,1}[a-zA-Z0-9-_]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]{2,15}){1}$/;
 
         const alertMessage = document.getElementsByClassName('alertMessage');
         //valid boolean is update when a regexp test fail
